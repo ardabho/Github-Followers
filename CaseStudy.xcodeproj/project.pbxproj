@@ -28,6 +28,7 @@
 		99B482742B4D9F61005327A4 /* CSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482732B4D9F61005327A4 /* CSAvatarImageView.swift */; };
 		99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482752B4DA008005327A4 /* FollowerCell.swift */; };
 		99B4827A2B4E9FB9005327A4 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482792B4E9FB9005327A4 /* UIHelper.swift */; };
+		99B482822B4EEB86005327A4 /* CSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		99B482732B4D9F61005327A4 /* CSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAvatarImageView.swift; sourceTree = "<group>"; };
 		99B482752B4DA008005327A4 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		99B482792B4E9FB9005327A4 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				99B482772B4DAEEC005327A4 /* Cells */,
-				995553D42B4981FD00260645 /* CSButton.swift */,
-				995553D62B49942B00260645 /* CSTextfield.swift */,
-				99B482562B4AFCFF005327A4 /* CSTitleLabel.swift */,
-				99B482582B4AFE36005327A4 /* CSBodyLabel.swift */,
-				99B4825A2B4BCC48005327A4 /* CSAlertVC.swift */,
-				99B482642B4C53FB005327A4 /* CSAlertContainerView.swift */,
-				99B482732B4D9F61005327A4 /* CSAvatarImageView.swift */,
+				99B4827B2B4EEACD005327A4 /* Buttons */,
+				99B482802B4EEB66005327A4 /* Textfields */,
+				99B4827C2B4EEAEE005327A4 /* Labels */,
+				99B4827E2B4EEB30005327A4 /* ViewControllers */,
+				99B4827F2B4EEB3D005327A4 /* Views */,
+				99B4827D2B4EEB02005327A4 /* ImageViews */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -174,6 +175,56 @@
 				99B482752B4DA008005327A4 /* FollowerCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		99B4827B2B4EEACD005327A4 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				995553D42B4981FD00260645 /* CSButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		99B4827C2B4EEAEE005327A4 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				99B482562B4AFCFF005327A4 /* CSTitleLabel.swift */,
+				99B482582B4AFE36005327A4 /* CSBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		99B4827D2B4EEB02005327A4 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				99B482732B4D9F61005327A4 /* CSAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		99B4827E2B4EEB30005327A4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				99B4825A2B4BCC48005327A4 /* CSAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		99B4827F2B4EEB3D005327A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99B482642B4C53FB005327A4 /* CSAlertContainerView.swift */,
+				99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99B482802B4EEB66005327A4 /* Textfields */ = {
+			isa = PBXGroup;
+			children = (
+				995553D62B49942B00260645 /* CSTextfield.swift */,
+			);
+			path = Textfields;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +307,7 @@
 				99B4826C2B4D2998005327A4 /* User.swift in Sources */,
 				995553BD2B4934DC00260645 /* AppDelegate.swift in Sources */,
 				99B4826A2B4D21D2005327A4 /* Follower.swift in Sources */,
+				99B482822B4EEB86005327A4 /* CSEmptyStateView.swift in Sources */,
 				99B482572B4AFCFF005327A4 /* CSTitleLabel.swift in Sources */,
 				99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */,
 				99B482592B4AFE36005327A4 /* CSBodyLabel.swift in Sources */,
