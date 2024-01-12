@@ -1,5 +1,5 @@
 //
-//  ErrorMessage.swift
+//  CSError.swift
 //  CaseStudy
 //
 //  Created by ARDA BUYUKHATIPOGLU on 9.01.2024.

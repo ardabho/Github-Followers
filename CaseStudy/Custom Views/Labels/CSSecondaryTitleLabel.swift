@@ -1,13 +1,13 @@
 //
-//  CSBodyLabel.swift
+//  CSSecondaryTitleLabel.swift
 //  CaseStudy
 //
-//  Created by ARDA BUYUKHATIPOGLU on 7.01.2024.
+//  Created by ARDA BUYUKHATIPOGLU on 11.01.2024.
 //
 
 import UIKit
 
-class CSBodyLabel: UILabel {
+class CSSecondaryTitleLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,11 +19,9 @@ class CSBodyLabel: UILabel {
     }
     
     
-    init(textAlignment: NSTextAlignment) {
+    init(fontSize: CGFloat) {
         super.init(frame: .zero)
-        
-        self.textAlignment = textAlignment
-        
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         configure()
     }
     
@@ -32,9 +30,8 @@ class CSBodyLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
         
         textColor = .secondaryLabel
-        font = .preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        minimumScaleFactor = 0.90
+        lineBreakMode = .byTruncatingTail
     }
 }

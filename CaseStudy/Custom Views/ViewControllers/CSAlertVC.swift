@@ -93,9 +93,4 @@ class CSAlertVC: UIViewController {
         ])
         
     }
-    
-    @objc func dismissVC() {
-        dismiss(animated: true)
-    }
-    
 }

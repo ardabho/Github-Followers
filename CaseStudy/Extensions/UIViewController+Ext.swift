@@ -21,6 +21,9 @@ extension UIViewController {
     }
     
     
+    @objc func dismissVC() { dismiss(animated: true) }
+    
+    
     func showLoadingView() {
         
         containerView = UIView(frame: view.bounds)

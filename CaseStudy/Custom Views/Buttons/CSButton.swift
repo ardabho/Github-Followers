@@ -33,4 +33,10 @@ class CSButton: UIButton {
         setTitleColor(.white, for: .normal)
         
     }
+    
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        self.setTitle(title, for: .normal)
+    }
 }

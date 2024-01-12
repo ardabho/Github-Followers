@@ -29,6 +29,16 @@
 		99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482752B4DA008005327A4 /* FollowerCell.swift */; };
 		99B4827A2B4E9FB9005327A4 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482792B4E9FB9005327A4 /* UIHelper.swift */; };
 		99B482822B4EEB86005327A4 /* CSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */; };
+		99B482842B4FE14E005327A4 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482832B4FE14E005327A4 /* UserInfoVC.swift */; };
+		99B482862B500EEA005327A4 /* CSUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482852B500EEA005327A4 /* CSUserInfoHeaderVC.swift */; };
+		99B482882B501025005327A4 /* CSSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482872B501025005327A4 /* CSSecondaryTitleLabel.swift */; };
+		99B4828A2B504139005327A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482892B504139005327A4 /* Constants.swift */; };
+		99B4828C2B505EE5005327A4 /* CSItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4828B2B505EE5005327A4 /* CSItemInfoView.swift */; };
+		99B4828E2B511A98005327A4 /* CSItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4828D2B511A98005327A4 /* CSItemInfoVC.swift */; };
+		99B482902B513659005327A4 /* CSRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4828F2B513659005327A4 /* CSRepoItemVC.swift */; };
+		99B482922B513CD7005327A4 /* CSFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482912B513CD7005327A4 /* CSFollowerItemVC.swift */; };
+		99B482952B514EF4005327A4 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482942B514EF4005327A4 /* Date+Ext.swift */; };
+		99B482972B514F21005327A4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482962B514F21005327A4 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +66,16 @@
 		99B482752B4DA008005327A4 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		99B482792B4E9FB9005327A4 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSEmptyStateView.swift; sourceTree = "<group>"; };
+		99B482832B4FE14E005327A4 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		99B482852B500EEA005327A4 /* CSUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		99B482872B501025005327A4 /* CSSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		99B482892B504139005327A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99B4828B2B505EE5005327A4 /* CSItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItemInfoView.swift; sourceTree = "<group>"; };
+		99B4828D2B511A98005327A4 /* CSItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItemInfoVC.swift; sourceTree = "<group>"; };
+		99B4828F2B513659005327A4 /* CSRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRepoItemVC.swift; sourceTree = "<group>"; };
+		99B482912B513CD7005327A4 /* CSFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFollowerItemVC.swift; sourceTree = "<group>"; };
+		99B482942B514EF4005327A4 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		99B482962B514F21005327A4 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +140,7 @@
 				995553D02B496F7500260645 /* SearchVC.swift */,
 				99B482542B4ACBF5005327A4 /* FollowersVC.swift */,
 				995553D22B496F8500260645 /* FavouritesVC.swift */,
+				99B482832B4FE14E005327A4 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -128,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				99B4825C2B4C3EA1005327A4 /* UIViewController+Ext.swift */,
+				99B482942B514EF4005327A4 /* Date+Ext.swift */,
+				99B482962B514F21005327A4 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +188,7 @@
 			children = (
 				99B482712B4D7E14005327A4 /* CSError.swift */,
 				99B482792B4E9FB9005327A4 /* UIHelper.swift */,
+				99B482892B504139005327A4 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,6 +214,7 @@
 			children = (
 				99B482562B4AFCFF005327A4 /* CSTitleLabel.swift */,
 				99B482582B4AFE36005327A4 /* CSBodyLabel.swift */,
+				99B482872B501025005327A4 /* CSSecondaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -205,7 +230,9 @@
 		99B4827E2B4EEB30005327A4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				99B482932B513D76005327A4 /* ItemInfoVCs */,
 				99B4825A2B4BCC48005327A4 /* CSAlertVC.swift */,
+				99B482852B500EEA005327A4 /* CSUserInfoHeaderVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -215,6 +242,7 @@
 			children = (
 				99B482642B4C53FB005327A4 /* CSAlertContainerView.swift */,
 				99B482812B4EEB86005327A4 /* CSEmptyStateView.swift */,
+				99B4828B2B505EE5005327A4 /* CSItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +253,16 @@
 				995553D62B49942B00260645 /* CSTextfield.swift */,
 			);
 			path = Textfields;
+			sourceTree = "<group>";
+		};
+		99B482932B513D76005327A4 /* ItemInfoVCs */ = {
+			isa = PBXGroup;
+			children = (
+				99B4828D2B511A98005327A4 /* CSItemInfoVC.swift */,
+				99B4828F2B513659005327A4 /* CSRepoItemVC.swift */,
+				99B482912B513CD7005327A4 /* CSFollowerItemVC.swift */,
+			);
+			path = ItemInfoVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +338,9 @@
 				995553D12B496F7500260645 /* SearchVC.swift in Sources */,
 				995553D52B4981FD00260645 /* CSButton.swift in Sources */,
 				99B482552B4ACBF5005327A4 /* FollowersVC.swift in Sources */,
+				99B482862B500EEA005327A4 /* CSUserInfoHeaderVC.swift in Sources */,
+				99B482902B513659005327A4 /* CSRepoItemVC.swift in Sources */,
+				99B482882B501025005327A4 /* CSSecondaryTitleLabel.swift in Sources */,
 				99B4825D2B4C3EA1005327A4 /* UIViewController+Ext.swift in Sources */,
 				99B4825B2B4BCC48005327A4 /* CSAlertVC.swift in Sources */,
 				995553D32B496F8500260645 /* FavouritesVC.swift in Sources */,
@@ -307,16 +348,23 @@
 				99B4826C2B4D2998005327A4 /* User.swift in Sources */,
 				995553BD2B4934DC00260645 /* AppDelegate.swift in Sources */,
 				99B4826A2B4D21D2005327A4 /* Follower.swift in Sources */,
+				99B482922B513CD7005327A4 /* CSFollowerItemVC.swift in Sources */,
 				99B482822B4EEB86005327A4 /* CSEmptyStateView.swift in Sources */,
+				99B482842B4FE14E005327A4 /* UserInfoVC.swift in Sources */,
 				99B482572B4AFCFF005327A4 /* CSTitleLabel.swift in Sources */,
 				99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */,
+				99B482972B514F21005327A4 /* String+Ext.swift in Sources */,
 				99B482592B4AFE36005327A4 /* CSBodyLabel.swift in Sources */,
 				99B482652B4C53FB005327A4 /* CSAlertContainerView.swift in Sources */,
+				99B4828E2B511A98005327A4 /* CSItemInfoVC.swift in Sources */,
 				99B482722B4D7E14005327A4 /* CSError.swift in Sources */,
 				99B4827A2B4E9FB9005327A4 /* UIHelper.swift in Sources */,
+				99B482952B514EF4005327A4 /* Date+Ext.swift in Sources */,
 				99B4826F2B4D44BA005327A4 /* NetworkManager.swift in Sources */,
 				995553BF2B4934DC00260645 /* SceneDelegate.swift in Sources */,
+				99B4828C2B505EE5005327A4 /* CSItemInfoView.swift in Sources */,
 				995553D72B49942B00260645 /* CSTextfield.swift in Sources */,
+				99B4828A2B504139005327A4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
