@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		992C914C2B51B58B0047A645 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C914B2B51B58B0047A645 /* PersistanceManager.swift */; };
+		992C914E2B52CE6E0047A645 /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C914D2B52CE6E0047A645 /* FavouritesCell.swift */; };
 		995553BD2B4934DC00260645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995553BC2B4934DC00260645 /* AppDelegate.swift */; };
 		995553BF2B4934DC00260645 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995553BE2B4934DC00260645 /* SceneDelegate.swift */; };
 		995553C62B4934E100260645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995553C52B4934E100260645 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		992C914B2B51B58B0047A645 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		992C914D2B52CE6E0047A645 /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		995553B92B4934DC00260645 /* CaseStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		995553BC2B4934DC00260645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		995553BE2B4934DC00260645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				99B482752B4DA008005327A4 /* FollowerCell.swift */,
+				992C914D2B52CE6E0047A645 /* FavouritesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -296,7 +299,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					995553B82B4934DC00260645 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -361,6 +364,7 @@
 				99B482592B4AFE36005327A4 /* CSBodyLabel.swift in Sources */,
 				99B482652B4C53FB005327A4 /* CSAlertContainerView.swift in Sources */,
 				99B4828E2B511A98005327A4 /* CSItemInfoVC.swift in Sources */,
+				992C914E2B52CE6E0047A645 /* FavouritesCell.swift in Sources */,
 				99B482722B4D7E14005327A4 /* CSError.swift in Sources */,
 				99B4827A2B4E9FB9005327A4 /* UIHelper.swift in Sources */,
 				99B482952B514EF4005327A4 /* Date+Ext.swift in Sources */,
@@ -422,6 +426,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -482,6 +487,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

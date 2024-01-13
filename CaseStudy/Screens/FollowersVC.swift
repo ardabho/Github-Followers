@@ -77,7 +77,7 @@ class FollowersVC: UIViewController {
                 
                 if self.followers.isEmpty {
                     let message = "This user doesn't have any followers. Go follow them 😄."
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message) }
+                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
                     return
                 }
                 self.updateData(on: self.followers)
@@ -117,7 +117,17 @@ class FollowersVC: UIViewController {
             switch result {
             case .success(let user):
                 let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                
+                PersistanceManager.update(with: favourite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    if let error = error {
+                        self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue, buttonTitle: "Ok")
+                        return
+                    }
+                    
+                    self.presentCSAlertOnMainThread(alertTitle: "Success", alertMessage: "You have succesfully added this user to your favourites 🎉", buttonTitle: "Ok")
+
+                }
                 
             case .failure(let error):
                 self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue , buttonTitle: "Ok")
