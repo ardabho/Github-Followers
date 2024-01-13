@@ -24,6 +24,6 @@ class CSFollowerItemVC: CSItemInfoVC {
     
     
     override func actionButtonTapped() {
-        delegate.didTapGetFollowers()
+        delegate.didTapGetFollowers(for: user)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		992C914C2B51B58B0047A645 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C914B2B51B58B0047A645 /* PersistanceManager.swift */; };
 		995553BD2B4934DC00260645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995553BC2B4934DC00260645 /* AppDelegate.swift */; };
 		995553BF2B4934DC00260645 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995553BE2B4934DC00260645 /* SceneDelegate.swift */; };
 		995553C62B4934E100260645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995553C52B4934E100260645 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		992C914B2B51B58B0047A645 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		995553B92B4934DC00260645 /* CaseStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		995553BC2B4934DC00260645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		995553BE2B4934DC00260645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,8 +110,8 @@
 		995553BB2B4934DC00260645 /* CaseStudy */ = {
 			isa = PBXGroup;
 			children = (
-				99B482702B4D7E05005327A4 /* Utilities */,
 				995553CA2B4934E100260645 /* Info.plist */,
+				99B482702B4D7E05005327A4 /* Utilities */,
 				99B4826D2B4D44AF005327A4 /* Managers */,
 				99B482682B4D21C5005327A4 /* Models */,
 				99B482632B4C4F60005327A4 /* Support */,
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				99B4826E2B4D44BA005327A4 /* NetworkManager.swift */,
+				992C914B2B51B58B0047A645 /* PersistanceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				99B482842B4FE14E005327A4 /* UserInfoVC.swift in Sources */,
 				99B482572B4AFCFF005327A4 /* CSTitleLabel.swift in Sources */,
 				99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */,
+				992C914C2B51B58B0047A645 /* PersistanceManager.swift in Sources */,
 				99B482972B514F21005327A4 /* String+Ext.swift in Sources */,
 				99B482592B4AFE36005327A4 /* CSBodyLabel.swift in Sources */,
 				99B482652B4C53FB005327A4 /* CSAlertContainerView.swift in Sources */,

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
+}
+
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
@@ -16,6 +20,7 @@ class UserInfoVC: UIViewController {
     
     var username: String!
     
+    weak var delegate: UserInfoVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,13 +126,25 @@ class UserInfoVC: UIViewController {
 
 extension UserInfoVC: ItemInfoVCDelegate {
     
-    func didTapGetFollowers() {
-        print("get followers")
+    
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentCSAlertOnMainThread(alertTitle: "Invalid Url", alertMessage: "The URL attachted to this user is invalid", buttonTitle: "Ok")
+            return
+        }
+        
+        presentSafariVC(with: url)
     }
     
-    func didTapGithubProfile() {
-        print("github profile")
-    }
     
+    func didTapGetFollowers(for user: User) {
+        guard user.followers > 0 else {
+            presentCSAlertOnMainThread(alertTitle: "Oops", alertMessage: "This user has no followers 😞.", buttonTitle: "So Sad")
+            return
+        }
+        
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
+    }
     
 }

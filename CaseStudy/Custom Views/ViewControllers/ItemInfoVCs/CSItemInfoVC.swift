@@ -8,8 +8,8 @@
 import UIKit
 
 protocol ItemInfoVCDelegate: AnyObject {
-    func didTapGetFollowers()
-    func didTapGithubProfile()
+    func didTapGetFollowers(for user: User)
+    func didTapGithubProfile(for user: User)
 }
 
 class CSItemInfoVC: UIViewController {
@@ -20,7 +20,7 @@ class CSItemInfoVC: UIViewController {
     let actionButton = CSButton()
     
     var user: User!
-    var delegate: ItemInfoVCDelegate!
+    weak var delegate: ItemInfoVCDelegate!
     
     
     init(user: User!) {

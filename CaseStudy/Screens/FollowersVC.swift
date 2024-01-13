@@ -33,13 +33,14 @@ class FollowersVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
     }
     
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem =   addButton
     }
     
     
@@ -104,6 +105,25 @@ class FollowersVC: UIViewController {
         
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
+    
+    
+    @objc func addButtonTapped() {
+        showLoadingView()
+        
+        NetworkManager.shared.getUser(for: username) { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            
+            switch result {
+            case .success(let user):
+                let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                
+                
+            case .failure(let error):
+                self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue , buttonTitle: "Ok")
+            }
+        }
+    }
 }
 
 
@@ -127,6 +147,7 @@ extension FollowersVC: UICollectionViewDelegate {
         
         let destinationVC = UserInfoVC()
         destinationVC.username = follower.login
+        destinationVC.delegate = self
         
         let navController = UINavigationController(rootViewController: destinationVC)
         present(navController, animated: true)
@@ -150,6 +171,25 @@ extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearchning = false
         updateData(on: followers)
+    }
+    
+}
+
+extension FollowersVC: UserInfoVCDelegate {
+    
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        title = username
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        page = 1
+        isSearchning = false
+        hasMoreFollowers = true
+        navigationItem.searchController?.searchBar.text = ""
+        navigationItem.searchController?.isActive = false
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(for: username, page: page)
+        
     }
     
 }
