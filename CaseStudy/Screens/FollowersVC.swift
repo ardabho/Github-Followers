@@ -19,6 +19,19 @@ class FollowersVC: UIViewController {
     var hasMoreFollowers = true // Does the user have more followers to load?
     var page = 1
     var isSearchning = false // Indicates if the user is currently using search
+    var isLoadingMoreFollowers = false
+    
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +61,7 @@ class FollowersVC: UIViewController {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a username"
-        searchController.searchBar.delegate = self
-        navigationItem.hidesSearchBarWhenScrolling = false
+//        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
     }
     
@@ -64,6 +76,7 @@ class FollowersVC: UIViewController {
     
     private func getFollowers(for username: String, page: Int) {
         showLoadingView()
+        isLoadingMoreFollowers = true
         
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
@@ -76,8 +89,11 @@ class FollowersVC: UIViewController {
                 if followers.count < 100 { self.hasMoreFollowers = false }
                 
                 if self.followers.isEmpty {
+                    
                     let message = "This user doesn't have any followers. Go follow them 😄."
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+                    DispatchQueue.main.async {
+                        self.navigationItem.searchController?.isActive = false
+                        self.showEmptyStateView(with: message, in: self.view) }
                     return
                 }
                 self.updateData(on: self.followers)
@@ -85,6 +101,8 @@ class FollowersVC: UIViewController {
             case .failure(let error):
                 self.presentCSAlertOnMainThread(alertTitle: "Bad Stuff", alertMessage: error.rawValue, buttonTitle: "Ok")
             }
+            
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -144,7 +162,7 @@ extension FollowersVC: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            guard hasMoreFollowers else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             getFollowers(for: username, page: page)
             
@@ -165,10 +183,11 @@ extension FollowersVC: UICollectionViewDelegate {
 }
 
 
-extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowersVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             updateData(on: followers)
+            filteredFollowers.removeAll()
             isSearchning = false
             return
         }
@@ -176,11 +195,6 @@ extension FollowersVC: UISearchResultsUpdating, UISearchBarDelegate {
         isSearchning = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearchning = false
-        updateData(on: followers)
     }
     
 }
@@ -192,12 +206,12 @@ extension FollowersVC: UserInfoVCDelegate {
         title = username
         followers.removeAll()
         filteredFollowers.removeAll()
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         page = 1
         isSearchning = false
         hasMoreFollowers = true
         navigationItem.searchController?.searchBar.text = ""
         navigationItem.searchController?.isActive = false
-        collectionView.setContentOffset(.zero, animated: true)
         getFollowers(for: username, page: page)
         
     }

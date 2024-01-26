@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990520662B63F87A00E755FC /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990520652B63F87A00E755FC /* UIView+Ext.swift */; };
 		992C914C2B51B58B0047A645 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C914B2B51B58B0047A645 /* PersistanceManager.swift */; };
 		992C914E2B52CE6E0047A645 /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C914D2B52CE6E0047A645 /* FavouritesCell.swift */; };
 		992C91512B5327010047A645 /* CSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992C91502B5327010047A645 /* CSTabBarController.swift */; };
@@ -41,10 +42,10 @@
 		99B482902B513659005327A4 /* CSRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4828F2B513659005327A4 /* CSRepoItemVC.swift */; };
 		99B482922B513CD7005327A4 /* CSFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482912B513CD7005327A4 /* CSFollowerItemVC.swift */; };
 		99B482952B514EF4005327A4 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482942B514EF4005327A4 /* Date+Ext.swift */; };
-		99B482972B514F21005327A4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B482962B514F21005327A4 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990520652B63F87A00E755FC /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		992C914B2B51B58B0047A645 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		992C914D2B52CE6E0047A645 /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		992C91502B5327010047A645 /* CSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTabBarController.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		99B4828F2B513659005327A4 /* CSRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRepoItemVC.swift; sourceTree = "<group>"; };
 		99B482912B513CD7005327A4 /* CSFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFollowerItemVC.swift; sourceTree = "<group>"; };
 		99B482942B514EF4005327A4 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		99B482962B514F21005327A4 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +165,7 @@
 			children = (
 				99B4825C2B4C3EA1005327A4 /* UIViewController+Ext.swift */,
 				99B482942B514EF4005327A4 /* Date+Ext.swift */,
-				99B482962B514F21005327A4 /* String+Ext.swift */,
+				990520652B63F87A00E755FC /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,11 +371,11 @@
 				99B482572B4AFCFF005327A4 /* CSTitleLabel.swift in Sources */,
 				99B482762B4DA008005327A4 /* FollowerCell.swift in Sources */,
 				992C914C2B51B58B0047A645 /* PersistanceManager.swift in Sources */,
-				99B482972B514F21005327A4 /* String+Ext.swift in Sources */,
 				99B482592B4AFE36005327A4 /* CSBodyLabel.swift in Sources */,
 				99B482652B4C53FB005327A4 /* CSAlertContainerView.swift in Sources */,
 				99B4828E2B511A98005327A4 /* CSItemInfoVC.swift in Sources */,
 				992C914E2B52CE6E0047A645 /* FavouritesCell.swift in Sources */,
+				990520662B63F87A00E755FC /* UIView+Ext.swift in Sources */,
 				99B482722B4D7E14005327A4 /* CSError.swift in Sources */,
 				992C91512B5327010047A645 /* CSTabBarController.swift in Sources */,
 				99B4827A2B4E9FB9005327A4 /* UIHelper.swift in Sources */,

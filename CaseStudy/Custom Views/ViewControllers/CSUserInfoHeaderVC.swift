@@ -86,7 +86,7 @@ class CSUserInfoHeaderVC: UIViewController {
     private func configureLocationImageView() {
         view.addSubview(locationImageView)
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
-        locationImageView.image = UIImage(systemName: SFSymbols.location)
+        locationImageView.image = Images.location
         locationImageView.tintColor = .secondaryLabel
         
         NSLayoutConstraint.activate([
@@ -120,7 +120,7 @@ class CSUserInfoHeaderVC: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: imageTextPadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 }

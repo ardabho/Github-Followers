@@ -12,10 +12,12 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = CSTextfield()
     let searchButton = CSButton(backgroundColor: .systemGreen, title: "Get Followers")
+    var logoImageViewTopConstraint: NSLayoutConstraint!
     
     var isUsernameEntered: Bool {
         return !usernameTextField.text!.isEmpty
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -29,15 +31,20 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
     }
     
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")!
+        logoImageView.image = Images.ghLogo
+        
+        let topconstraintConstant: CGFloat = DeviceTypes.isiphoneSE || DeviceTypes.isiphone8Zoomed ? 20 : 80
+        
+        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topconstraintConstant)
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoImageViewTopConstraint,
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             logoImageView.heightAnchor.constraint(equalToConstant: 200)
@@ -71,7 +78,7 @@ class SearchVC: UIViewController {
     }
     
     func createDismissKeyboardTapGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -81,9 +88,10 @@ class SearchVC: UIViewController {
             presentCSAlertOnMainThread(alertTitle: "Empty Username", alertMessage: "Please Enter a username, we need to know who to look for 😅", buttonTitle: "Ok")
             return
         }
-        let followersVC = FollowersVC()
-        followersVC.username = usernameTextField.text
-        followersVC.title = usernameTextField.text
+        
+        usernameTextField.resignFirstResponder()
+        
+        let followersVC = FollowersVC(username: usernameTextField.text!)
         
         navigationController?.pushViewController(followersVC, animated: true)
     }

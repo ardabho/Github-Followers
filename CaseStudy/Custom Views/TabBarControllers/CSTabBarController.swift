@@ -14,8 +14,6 @@ class CSTabBarController: UITabBarController {
         
         UITabBar.appearance().tintColor = .systemGreen
         viewControllers = [createSearchNC(), createFavouritesNC()]
-
-        
     }
     
     
