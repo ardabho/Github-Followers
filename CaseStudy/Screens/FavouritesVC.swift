@@ -48,18 +48,23 @@ class FavouritesVC: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let favourites):
-                if favourites.isEmpty {
-                    showEmptyStateView(with: "You haven't added anyone to your favorites 🫥", in: view)
-                } else {
-                    self.favourites = favourites
-                    DispatchQueue.main.async {
-                        self.tableview.reloadData()
-                        self.view.bringSubviewToFront(self.tableview)
-                    }
-                }
+                self.updateUI(with: favourites)
                 
             case .failure(let error):
                 self.presentCSAlertOnMainThread(alertTitle: "Unable To Remove", alertMessage: error.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    
+    private func updateUI(with favourites: [Follower]) {
+        if favourites.isEmpty {
+            showEmptyStateView(with: "You haven't added anyone to your favorites 🫥", in: view)
+        } else {
+            self.favourites = favourites
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+                self.view.bringSubviewToFront(self.tableview)
             }
         }
     }
@@ -94,13 +99,16 @@ extension FavouritesVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
-        let favourite = favourites[indexPath.row]
-        favourites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .top)
-        
-        PersistanceManager.update(with: favourite, actionType: .remove) { [weak self] error in
-            guard let self = self,
-                  let error = error else { return }
+        PersistanceManager.update(with: favourites[indexPath.row], actionType: .remove) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                self.favourites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                if favourites.isEmpty {
+                    showEmptyStateView(with: "You haven't added anyone to your favorites 🫥", in: self.view)
+                }
+                return
+            }
             
             self.presentCSAlertOnMainThread(alertTitle: "Something Wrong", alertMessage: error.rawValue, buttonTitle: "Ok")
         }

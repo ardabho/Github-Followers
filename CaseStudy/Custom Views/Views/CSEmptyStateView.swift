@@ -48,8 +48,12 @@ class CSEmptyStateView: UIView {
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
             logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 80)
+            logoImageView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 40)
         ])
     }
     
+}
+
+#Preview {
+    CSEmptyStateView(message: "Oh no you haven't added anyone here 🫥")
 }

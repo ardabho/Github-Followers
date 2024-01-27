@@ -85,18 +85,7 @@ class FollowersVC: UIViewController {
             
             switch result {
             case .success(let followers):
-                self.followers.append(contentsOf: followers)
-                if followers.count < 100 { self.hasMoreFollowers = false }
-                
-                if self.followers.isEmpty {
-                    
-                    let message = "This user doesn't have any followers. Go follow them 😄."
-                    DispatchQueue.main.async {
-                        self.navigationItem.searchController?.isActive = false
-                        self.showEmptyStateView(with: message, in: self.view) }
-                    return
-                }
-                self.updateData(on: self.followers)
+                self.updateUI(with: followers)
                 
             case .failure(let error):
                 self.presentCSAlertOnMainThread(alertTitle: "Bad Stuff", alertMessage: error.rawValue, buttonTitle: "Ok")
@@ -104,6 +93,22 @@ class FollowersVC: UIViewController {
             
             self.isLoadingMoreFollowers = false
         }
+    }
+    
+    
+    func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers. Go follow them 😄."
+            DispatchQueue.main.async {
+                self.navigationItem.searchController?.isActive = false
+                self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        
+        self.updateData(on: self.followers)
     }
     
     
@@ -134,22 +139,26 @@ class FollowersVC: UIViewController {
             
             switch result {
             case .success(let user):
-                let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PersistanceManager.update(with: favourite, actionType: .add) { [weak self] error in
-                    guard let self = self else { return }
-                    
-                    if let error = error {
-                        self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue, buttonTitle: "Ok")
-                        return
-                    }
-                    
-                    self.presentCSAlertOnMainThread(alertTitle: "Success", alertMessage: "You have succesfully added this user to your favourites 🎉", buttonTitle: "Ok")
-
-                }
+                self.addUserToFavourites(user: user)
                 
             case .failure(let error):
                 self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue , buttonTitle: "Ok")
             }
+        }
+    }
+    
+    
+    func addUserToFavourites(user: User) {
+        let favourite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistanceManager.update(with: favourite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                self.presentCSAlertOnMainThread(alertTitle: "Something Went Wrong", alertMessage: error.rawValue, buttonTitle: "Ok")
+                return
+            }
+            
+            self.presentCSAlertOnMainThread(alertTitle: "Success", alertMessage: "You have succesfully added this user to your favourites 🎉", buttonTitle: "Ok")
         }
     }
 }

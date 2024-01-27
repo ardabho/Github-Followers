@@ -20,6 +20,7 @@ class CSAlertVC: UIViewController {
     
     let padding: CGFloat = 20
     
+    
     init(alertTitle: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = alertTitle
@@ -36,6 +37,7 @@ class CSAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -67,6 +69,7 @@ class CSAlertVC: UIViewController {
         ])
     }
     
+    
     func configureActionButton() {
         containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle, for: .normal)
@@ -79,6 +82,7 @@ class CSAlertVC: UIViewController {
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
+    
     
     func configureBodyLabel() {
         containerView.addSubview(bodyLabel)

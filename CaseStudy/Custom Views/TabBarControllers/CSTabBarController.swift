@@ -11,7 +11,6 @@ class CSTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UITabBar.appearance().tintColor = .systemGreen
         viewControllers = [createSearchNC(), createFavouritesNC()]
     }

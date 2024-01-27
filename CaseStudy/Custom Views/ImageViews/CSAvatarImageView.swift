@@ -11,14 +11,17 @@ class CSAvatarImageView: UIImageView {
     let cache = NetworkManager.shared.cache
     let placeholderImage = Images.avatarPlaceholder
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -28,13 +31,12 @@ class CSAvatarImageView: UIImageView {
         image = placeholderImage
     }
     
+    
     func downloadImage(from urlString: String) {
-        NetworkManager.shared.downloadImage(from: urlString) { image in
-            guard let image = image else {return}
-            
-            DispatchQueue.main.async {
-                self.image = image
-            }
+        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
+            guard let image = image,
+                  let self = self else {return}
+            DispatchQueue.main.async { self.image = image }
         }
     }
 
